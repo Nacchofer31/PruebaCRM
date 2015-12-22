@@ -1,0 +1,23 @@
+/*Mis definiciones de estilo*/
+.titulo{
+	font-size:30px;
+	font-family:cursive;
+	margin-left: 130px;
+}
+.nombreLista{
+	font-family: cursive;
+}
+.elementosD{
+	margin-left: 10px;
+	font-size: 14px;
+	font-family: cursive;
+}
+.profesion{
+	font-family: cursive;
+	font-size: 14px;
+	margin-left: 120px;
+	margin-top: 18px;
+}
+.avatar{
+	margin-left: 150px;
+}
