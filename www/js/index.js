@@ -47,12 +47,14 @@ var cargarDB = {
                         $("#lista ul").append("<li id='"+fila.id+"' class='listaUsers'><a href='detalles.html' data-ajax='false'><img src='./img/cristoph.png' ><div align='center'>"+fila.nombre_apellidos+"</div><div class='profesionLista' align='center'>"+fila.localidad+"</div></a></li>").listview('refresh');
                     }
                 }
+                //PASO 5 || Clickar en la lista
                 //Guardamos la id en el LocalStorage
                 $(document).ready(
                     function(){
                         $('.listaUsers').click(
                             function(){
                                 var id=$(this).attr("id");
+
                                 window.localStorage.setItem("user_id",id);
                             }
                         );
@@ -113,7 +115,7 @@ var confDB = {
                 "localidad VARCHAR(100),"+
                 "telefono VARCHAR(15),"+
                 "email VARCHAR(256),"+
-                "ultimos INTEGER(1) not null CHECK (ultimos >=0 AND ultimos <=1));";
+                "ultimos INTEGER(1) CHECK (ultimos >=0 AND ultimos <=1));";
 
         tx.executeSql(sql);
 

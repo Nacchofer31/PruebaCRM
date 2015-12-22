@@ -5,6 +5,7 @@ var telefono="";
 var email="";
 var db="";
 var id="";
+var ultimos=0;
 
 var inicia = {
 
@@ -20,6 +21,7 @@ initialize: function(){
         db.transaction(this.mostrarDB,this.mostrarDBError);
     },
     mostrarDB:function(tx){
+        //PASO 5 || Muestra los detalles del elemento de la lista clickado.
     	id=window.localStorage.getItem("user_id");
 
         var sql="SELECT * FROM contactos WHERE id='"+id+"';";
@@ -38,6 +40,7 @@ initialize: function(){
                         localidad=fila.localidad;
                         telefono=fila.telefono;
                         email=fila.email;
+                        ultimos=fila.ultimos;
                         //Aquí actualizaría automaticamente el html
                         console.log("ROW "+i+" nombre: "+fila.nombre_apellidos);
                         $("#nombre_apellidos").append(nombre_apellidos);
@@ -45,6 +48,8 @@ initialize: function(){
                         $("#localidad").append(localidad);
                         $("#telefono").append(telefono);
                         $("#correo").append(email);
+                        //PASO 5
+                        $("#ultimos").append(ultimos);
                     }
                 }
             },
