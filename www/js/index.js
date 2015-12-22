@@ -31,7 +31,7 @@ var cargarDB = {
         this.db.transaction(this.mostrarDB,this.mostrarDBError);
     },
     mostrarDB:function(tx){
-        var sql="SELECT * FROM contactos;";
+        var sql="SELECT * FROM contactos ORDER BY ultimos DESC;";
         console.log("Lanzamos la consulta");
         tx.executeSql(
             sql,
