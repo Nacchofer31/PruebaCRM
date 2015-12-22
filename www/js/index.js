@@ -117,6 +117,8 @@ var confDB = {
 
         tx.executeSql(sql);
 
+
+        //PASO 3 |TODOS LOS INSERTS|
         //Insertamos datos
         sql="INSERT INTO contactos(nombre_apellidos,edad,localidad,telefono,email)"+
                 " VALUES('Cristoph Waltz','49','Austria','633233322','Cristoph@gmail.com',1);";
@@ -129,12 +131,17 @@ var confDB = {
         tx.executeSql(sql);
 
         sql="INSERT INTO contactos(nombre_apellidos,edad,localidad,telefono,email)"+
-                " VALUES('Bryan Cranstron','59','EEUU','63455434','cranstron@gmail.com',1);";
+                " VALUES('Bryan Cranstron','59','EEUU','63455434','cranstron@gmail.com',0);";
 
         tx.executeSql(sql);
 
         sql="INSERT INTO contactos(nombre_apellidos,edad,localidad,telefono,email)"+
                 " VALUES('Chuck Norris','59','EEUU','63455434','norris@gmail.com',0);";
+
+        tx.executeSql(sql);
+
+        sql="INSERT INTO contactos(nombre_apellidos,edad,localidad,telefono,email)"+
+                " VALUES('Robert de Niro','72','EEUU','63455434','deniro@gmail.com',1);";
 
         tx.executeSql(sql);
     },
