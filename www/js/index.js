@@ -106,33 +106,37 @@ var confDB = {
     createLocalDB:function(tx){
         tx.executeSql("DROP TABLE IF EXISTS contactos");
 
-
         var sql="CREATE TABLE IF NOT EXISTS contactos("+
                 "id INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "nombre_apellidos VARCHAR(256),"+
                 "edad INT(10),"+
                 "localidad VARCHAR(100),"+
                 "telefono VARCHAR(15),"+
-                "email VARCHAR(256));";
+                "email VARCHAR(256),"+
+                "ultimos INTEGER(1) not null CHECK (ultimos >=0 AND ultimos <=1));";
 
         tx.executeSql(sql);
 
         //Insertamos datos
         sql="INSERT INTO contactos(nombre_apellidos,edad,localidad,telefono,email)"+
-                " VALUES('Cristoph Waltz','49','Viena','633233322','Cristoph@gmail.com');";
+                " VALUES('Cristoph Waltz','49','Austria','633233322','Cristoph@gmail.com',1);";
 
         tx.executeSql(sql);
 
         sql="INSERT INTO contactos(nombre_apellidos,edad,localidad,telefono,email)"+
-                " VALUES('Quentin Tarantino','39','EEUU','63455434','quentin@gmail.com');";
+                " VALUES('Quentin Tarantino','39','EEUU','63455434','quentin@gmail.com',0);";
 
         tx.executeSql(sql);
 
         sql="INSERT INTO contactos(nombre_apellidos,edad,localidad,telefono,email)"+
-                " VALUES('Bryan Cranstron','59','EEUU','63455434','cranstron@gmail.com');";
+                " VALUES('Bryan Cranstron','59','EEUU','63455434','cranstron@gmail.com',1);";
 
         tx.executeSql(sql);
 
+        sql="INSERT INTO contactos(nombre_apellidos,edad,localidad,telefono,email)"+
+                " VALUES('Chuck Norris','59','EEUU','63455434','norris@gmail.com',0);";
+
+        tx.executeSql(sql);
     },
     createDBError:function(err){
         console.log("Se ha producido un error en la creacion de la base de datos: "+error.code);
